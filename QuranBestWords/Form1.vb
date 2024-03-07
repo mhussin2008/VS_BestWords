@@ -4,44 +4,19 @@ Public Class Form1
     Public pageNumber As Integer
     Public maxPage As Integer
     Public minPage As Integer
-
-
-
+    Public images_path As String = "C:\VSProjects\VS_BestWords\QuranBestWords\images\"
+    Public mp3_path As String = "C:\VSProjects\VS_BestWords\QuranBestWords\mp3_original\1-split\"
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Dim x As AxWMPLib.AxWindowsMediaPlayer
-
-
         AxWindowsMediaPlayer1.Ctlcontrols.stop()
-
-
-
-        AxWindowsMediaPlayer1.URL = "D:\VB_Projects\QuranBestWords\QuranBestWords\mp3_original\1-split\1_silence_01.mp3"
-
+        AxWindowsMediaPlayer1.URL = mp3_path + "1_silence_01.mp3"
         AxWindowsMediaPlayer1.Ctlcontrols.stop()
-
-
-
-
-
-
-
-
-
-
-
-
     End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         AxWindowsMediaPlayer1.Ctlcontrols.play()
-
     End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        PictureBox1.Image = Image.FromFile("D:\VB_Projects\QuranBestWords\QuranBestWords\images\32.png")
-
-
-
+        PictureBox1.Image = Image.FromFile(images_path + "32.png")
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -61,14 +36,7 @@ Public Class Form1
         Me.SetDesktopLocation((ScreenW - Me.Width) / 2, 0)
         PictureBox1.Width = Me.Width - 200
         PictureBox1.Height = Me.Height - 100
-
-
-
-
-
-
     End Sub
-
     Private Sub BtnIncrease_Click(sender As Object, e As EventArgs) Handles BtnIncrease.Click
         If pageNumber >= maxPage Then
             Exit Sub
@@ -81,7 +49,8 @@ Public Class Form1
     End Sub
 
     Private Sub getPage()
-        PictureBox1.Image = Image.FromFile("D:\VB_Projects\QuranBestWords\QuranBestWords\images\" + pageNumber.ToString + ".png")
+
+        PictureBox1.Image = Image.FromFile(images_path + pageNumber.ToString + ".png")
         '  Throw New NotImplementedException()
     End Sub
 
